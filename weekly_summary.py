@@ -3,12 +3,9 @@ import os
 from dotenv import load_dotenv
 from slack import WebClient
 
-
-
 load_dotenv()
 TOKEN = os.environ.get("SLACK_BOT_TOKEN")
-
-gdocs_link = 'https://docs.google.com/document/d/1VJUXKDc1WfmXYjRYZLHIFU_ZlCkQHdgzN7h6TFXF93o/edit?usp=sharing'
+DEBUG = True
 
 MESSAGE_BLOCK = {
     "type": "section",
@@ -22,14 +19,32 @@ MESSAGE_BLOCK = {
 def connect_to_gdrive():
     pass
 
+
 def create_doc():
     # Get date
     # Copy-paste 
     pass
 
-def weekly_summary_to_slack():
+def slack_weekly_summary():
+    """Get weekly summary updates from developers in Slack
+    
+    Keyword arguments:
+    Send text to developers asking for latest updates
 
-    current_channel = '#tests'
+    Return: JSON with updates
+    updates = {
+        "dev": "devname",
+        "functional": "...",
+        "visual": "...",
+        "internal": "...",
+    }
+    """
+    
+    if DEBUG:
+        current_channel = '#tests'
+    else:
+        current_channel = '#webdev'
+
     message = f"Weekly summary time! \
             {gdocs_link} \
             Add your changes and report when you finish please :+1:"
@@ -45,8 +60,7 @@ def weekly_summary_to_slack():
 
 def weekly_summary():
     create_doc()
-    weekly_summary_to_slack()
-
+    
 
 if __name__ == "__main__":
-    weekly_summary()
+    slack_weekly_summary()
