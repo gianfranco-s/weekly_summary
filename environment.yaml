@@ -23,12 +23,19 @@ dependencies:
   - xz=5.2.5=h7b6447c_0
   - zlib=1.2.12=h7f8727e_2
   - pip:
+    - click==8.1.2
+    - flask==2.1.1
     - google-api-python-client==2.45.0
     - google-auth-httplib2==0.1.0
     - google-auth-oauthlib==0.5.1
     - idna==3.3
+    - itsdangerous==2.1.2
+    - markupsafe==2.1.1
     - oauthlib==3.2.0
+    - pyee==9.0.4
     - requests==2.27.1
+    - slackeventsapi==3.0.1
     - tabulate==0.8.9
     - urllib3==1.26.9
+    - werkzeug==2.1.1
 prefix: /home/gsalomone/anaconda3/envs/slack
